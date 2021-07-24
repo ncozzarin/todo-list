@@ -3,10 +3,11 @@ import List from './List';
 
 const Input = () => 
 {
-    let tasks = [];
+    const tasks = [];
     const [state, setState] = React.useState({
+        task:"",
         taskCount: 0,
-        task:""
+        
       });
     
       function updateTask(event){
@@ -17,6 +18,7 @@ const Input = () =>
 
       function addTask(){
         setState({
+          task: state.task,
           taskCount: state.taskCount + 1
         })
       
