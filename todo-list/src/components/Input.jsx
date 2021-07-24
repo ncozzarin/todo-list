@@ -1,8 +1,9 @@
 import React from 'react';
+import List from './List';
 
 const Input = () => 
 {
-
+    let tasks = [];
     const [state, setState] = React.useState({
         taskCount: 0,
         task:""
@@ -18,14 +19,23 @@ const Input = () =>
         setState({
           taskCount: state.taskCount + 1
         })
-        console.log(state);
-      }
-
       
+        for (let i = 0; i < state.taskCount; i ++){
+          tasks.push(state.task);
+        }
+        console.log(tasks);
+    }
+    
+
     return(
       <div>
-        <input onChange={updateTask} value={state.task} />
-        <button onClick={addTask}></button>    
+        <div>
+          <input onChange={updateTask} value={state.task} />
+          <button onClick={addTask}>+</button>
+        </div>
+        <ul>
+          <List tasksP={tasks}></List>
+        </ul>
       </div>
     );
 }

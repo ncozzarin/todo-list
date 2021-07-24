@@ -6,13 +6,10 @@ import List from './components/List';
 
 function App() {
 
-
-
   return (
     <div className="todo-listnp">
       <h1>Todo List</h1>
       <Input></Input>
-      <List></List>
     </div>
   );
 }
