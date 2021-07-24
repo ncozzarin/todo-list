@@ -34,7 +34,7 @@ const Input = () =>
           <button onClick={addTask}>+</button>
         </div>
         <ul>
-          <List tasksP={tasks}></List>
+          <List tasks={tasks}></List>
         </ul>
       </div>
     );
