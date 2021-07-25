@@ -19,12 +19,14 @@ const Input = () =>
       } 
 
       function addTask(){
+        if(state.task !== ""){
         setState({
           ...state,
           tasks: [...state.tasks,  state.task],
           taskCount: state.taskCount + 1,
           task:""
         })
+      }
         console.log(state);
         
 
