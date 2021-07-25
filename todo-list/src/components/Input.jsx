@@ -22,11 +22,14 @@ const Input = () =>
         setState({
           ...state,
           tasks: [...state.tasks,  state.task],
-          taskCount: state.taskCount + 1
+          taskCount: state.taskCount + 1,
+          task:""
         })
+        console.log(state);
+        
+
       }
     
-
     return(
       <div>
         <div>
