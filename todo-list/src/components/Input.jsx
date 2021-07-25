@@ -1,6 +1,6 @@
 import React from 'react';
 import List from './List';
-
+import '../App.css';
 const Input = () => 
 {
     /* const tasks = []; */
@@ -26,14 +26,12 @@ const Input = () =>
           taskCount: state.taskCount + 1,
           task:""
         })
-      }
-        console.log(state);
-        
+      }        
 
       }
     
     return(
-      <div>
+      <div className="todo-list-div">
         <div>
           <input onChange={updateTask} value={state.task} />
           <button onClick={addTask}>+</button>
