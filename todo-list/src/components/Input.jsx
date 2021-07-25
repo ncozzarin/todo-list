@@ -3,29 +3,29 @@ import List from './List';
 
 const Input = () => 
 {
-    const tasks = [];
+    /* const tasks = []; */
     const [state, setState] = React.useState({
-        task:"",
+        tasks:[],
         taskCount: 0,
+        task: ""
         
       });
     
       function updateTask(event){
         setState({ 
+          ...state,
           task : event.target.value
       });
       } 
 
       function addTask(){
         setState({
-          task: state.task,
+          ...state,
+          tasks: [...state.tasks, state.task],
           taskCount: state.taskCount + 1
         })
-      
-        for (let i = 0; i < state.taskCount; i ++){
-          tasks.push(state.task);
-        }
-        console.log(tasks);
+        
+        console.log(state.tasks);
     }
     
 
@@ -36,7 +36,7 @@ const Input = () =>
           <button onClick={addTask}>+</button>
         </div>
         <ul>
-          <List tasks={tasks}></List>
+          <List tasks={state.tasks}></List>
         </ul>
       </div>
     );
