@@ -26,6 +26,11 @@ const Input = () =>
       });
       } 
 
+      function inputKeyEvent(event){
+        if(event.key === "Enter"){
+          addTask();
+        }
+      }
       function addTask(){
         if(state.task !== ""){
         setState({
@@ -35,15 +40,16 @@ const Input = () =>
           task:""
         });
       }    
-    
+      
+
 
       }
     
     return(
       <div className="todo-list-div">
         <div>
-          <input onChange={updateTask} value={state.task} />
-          <button onClick={addTask}>+</button>
+          <input onChange={updateTask} onKeyPress={inputKeyEvent} value={state.task} />
+          <button onClick={addTask} >+</button>
         </div>
         <ul>
           <List tasks={state.tasks} deleteTask={deleteTasks}></List>

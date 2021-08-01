@@ -8,9 +8,9 @@ const List = (props) => {
 
     return(
         tasks.map((task, index) => 
-            <div className='list-div'>
+            <div key={index} className='list-div'>
                 <input type="checkbox"></input>
-                <li key={index}>{task}</li>
+                <li >{task}</li>
                 <button onClick={() => deleteTask(index,tasks)}>X</button>
             </div>
         )
