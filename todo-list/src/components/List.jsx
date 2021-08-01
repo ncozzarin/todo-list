@@ -4,16 +4,14 @@ import '../App.css';
 
 const List = (props) => { 
     const tasks = props.tasks;
-/*     const [state, setState] = React.useState({
-        tasks: tasks
-      }); */
-/*     console.log(state); */
+    const deleteTask = props.deleteTask;
+
     return(
         tasks.map((task, index) => 
             <div className='list-div'>
                 <input type="checkbox"></input>
                 <li key={index}>{task}</li>
-                <button>X</button>
+                <button onClick={() => deleteTask(index,tasks)}>X</button>
             </div>
         )
     );

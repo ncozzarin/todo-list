@@ -10,6 +10,14 @@ const Input = () =>
         task: ""
         
       });
+
+      function deleteTasks(taskIndex, tasks){
+        tasks.splice(taskIndex,1);
+        setState({
+          ...state,
+          tasks: tasks
+        });
+      }
     
       function updateTask(event){
         setState({ 
@@ -25,8 +33,9 @@ const Input = () =>
           tasks: [...state.tasks,  state.task],
           taskCount: state.taskCount + 1,
           task:""
-        })
-      }        
+        });
+      }    
+    
 
       }
     
@@ -37,7 +46,7 @@ const Input = () =>
           <button onClick={addTask}>+</button>
         </div>
         <ul>
-          <List tasks={state.tasks}></List>
+          <List tasks={state.tasks} deleteTask={deleteTasks}></List>
         </ul>
       </div>
     );
