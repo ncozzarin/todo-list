@@ -46,10 +46,10 @@ const Input = () =>
       }
     
     return(
-      <div className="todo-list-div">
+      <div className="input-div">
         <div>
-          <input onChange={updateTask} onKeyPress={inputKeyEvent} value={state.task} />
-          <button onClick={addTask} >+</button>
+          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={state.task} />
+          <button className="addButton" onClick={addTask} >+</button>
         </div>
         <ul>
           <List tasks={state.tasks} deleteTask={deleteTasks}></List>

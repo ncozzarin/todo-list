@@ -1,3 +1,7 @@
+:root{
+  --main-color: #4287f5;
+}
+
 
 .todo-list{
   display: block;
@@ -6,8 +10,46 @@
   text-align: center;
 }
 
-.list-div{
-  display: flex;
-  background-color: red;
+.todo-list{
+  background-color: white;
+  min-height: 30%;
+  width: 50%;
 }
 
+ul{
+  list-style-type:none;
+
+}
+
+.addButton{
+  background-color: var(--main-color);
+  border: none;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  margin: 1rem;
+}
+
+.input{
+  width: 80%;
+  height: 2.6rem;
+}
+
+/* .input-div{
+  display: block;
+} */
+.addButton:hover{
+  cursor: pointer;
+}
+
+
+.list-div{
+  display: flex;
+  background-color: #cff0fc;
+  width: 90%;
+}
+
+.list-div .button{
+  justify-content: flex-end;
+}
