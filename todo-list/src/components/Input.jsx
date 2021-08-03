@@ -7,9 +7,6 @@ const Input = () =>
     const [state, setState] = React.useState({
         tasks:[],
         taskCount: 0,
-        task: "",
-        status: []
-        
       });
 
       function deleteTasks(taskIndex, tasks){
@@ -23,7 +20,7 @@ const Input = () =>
       function updateTask(event){
         setState({ 
           ...state,
-          task : event.target.value
+          tasks : {task: event.target.value}
       });
       } 
 
@@ -76,13 +73,11 @@ const Input = () =>
       
 
       function addTask(){
-        if(state.task !== ""){
+        if(state.tasks.task !== ""){
         setState({
           ...state,
-          tasks: [...state.tasks,  state.task],
-          status:[...state.status, false],
+          tasks: [{...state.tasks},{task: state.tasks.task, id: state.taskCount, completed: false }],
           taskCount: state.taskCount + 1,
-          task:""
         });
       }    
       
@@ -93,11 +88,11 @@ const Input = () =>
     return(
       <div className="input-div">
         <div>
-          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={state.task} />
+          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={state.tasks.task} />
           <button className="addButton" onClick={addTask} >+</button>
         </div>
         <ul>
-          <List tasks={state.tasks} deleteTask={deleteTasks} isChecked={isChecked} status={state.status}></List>
+          <List tasks={state.tasks} deleteTask={deleteTasks} isChecked={isChecked} completed={state.tasks.completed}></List>
         </ul>
         
         <button onClick={deleteDone}>Delete checked X</button>
