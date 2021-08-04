@@ -3,10 +3,9 @@ import List from './List';
 import '../App.css';
 const Input = () => 
 {
-    /* const tasks = []; */
     const [state, setState] = React.useState({
-        tasks:[],
-        taskCount: 0,
+        tasks:[{task: "hola",id: 0, completed: false}  ],
+        taskCount: 0
       });
 
       function deleteTasks(taskIndex, tasks){
@@ -21,7 +20,7 @@ const Input = () =>
         console.log(state.tasks);
         setState({ 
           ...state,
-          tasks : {task: event.target.value}
+          tasks: [{task: event.target.value}]
       });
       } 
 
@@ -42,7 +41,6 @@ const Input = () =>
           ...state,
           status: status
         });
-        console.log(state.status);
       }
 
       function deleteDone(){
