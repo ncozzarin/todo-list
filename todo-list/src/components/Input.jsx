@@ -18,6 +18,7 @@ const Input = () =>
       }
     
       function updateTask(event){
+        console.log(event);
         setState({ 
           ...state,
           tasks : {task: event.target.value}

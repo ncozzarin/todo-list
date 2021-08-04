@@ -3,12 +3,13 @@ import '../App.css';
 
 
 const List = ({tasks,deleteTask,isChecked,completed}) => {
+    console.log(Object.keys(tasks).map(tasks));
     return(
-        Object.keys(tasks).map((task, index) => 
+        tasks.map((tasks, index) => 
             <div key={index} className='list-div'>
                 <input onChange={()=> isChecked(index,completed)} value={completed} type="checkbox"></input>
-                <li >{task}</li>
-                <button onClick={() => deleteTask(index,tasks)}>X</button>
+                <li >{tasks.task}</li>
+                <button onClick={() => deleteTask(index,tasks.task)}>X</button>
             </div>
         )
     );
