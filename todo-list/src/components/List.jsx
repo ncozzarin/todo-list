@@ -4,11 +4,11 @@ import '../App.css';
 
 const List = ({tasks,deleteTask,isChecked}) => {
     return(
-        tasks && tasks.map((task, index) => 
-            <div key={index} className='list-div'>
-                <input onChange={()=> isChecked(index,tasks)} type="checkbox"></input>
-                <li >{task[0]}</li>
-                <button onClick={() => deleteTask(index,tasks)}>X</button>
+        tasks && tasks.map((task) => 
+            <div key={task.id} className='list-div'>
+                <input onChange={()=> isChecked(task.id,tasks)} type="checkbox"></input>
+                <li >{task.task}</li>
+                <button onClick={() => deleteTask(task.id,tasks)}>X</button>
             </div>
         )
     );

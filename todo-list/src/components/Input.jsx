@@ -6,13 +6,13 @@ const Input = () =>
     const [tasks, setTask] = React.useState([]);
       function deleteTasks(taskIndex, tasks){
         tasks.splice(taskIndex,1);
-        setTask({
-          ...tasks,
-          tasks: tasks
-        });
       }
     
       function updateTask(event){
+
+        setTask([...tasks,{
+          task: event.target.value,
+        }]);
       } 
 
       function inputKeyEvent(event){
@@ -22,35 +22,22 @@ const Input = () =>
       }
 
       function isChecked(index, status){
-        console.log(index);
-        if (status[index] !== true){
-          status[index] = true;
-        } else {
-          status[index] = false;
-        }
-
       }
 
       function deleteDone(){
-        
-        let status = tasks.status;
-        let deletedItems = 0;
-        for(let i = tasks.taskCount - 1;i >= 0;i--){
-            console.log(i);
-            console.log(tasks.status[i]);
-            if(tasks.status[i] === true){
-              tasks.splice(i,1);
-              status.splice(i,1);
-              deletedItems++;
-          }
-        }
-
-      
     }
       
-
       function addTask(){
-        if(tasks.tasks.task !== ""){}
+        let newTasks = tasks
+        if(tasks[tasks.length] !== ""){
+          setTask((tasks) => [...tasks, 
+                {
+                  task:tasks,
+                  id: tasks.length,
+                  complete:false
+                }, 
+              ]);
+            }
 
 
       }
@@ -58,7 +45,7 @@ const Input = () =>
     return(
       <div className="input-div">
         <div>
-          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={current} />
+          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={tasks.task} />
           <button className="addButton" onClick={addTask} >+</button>
         </div>
         <ul>
