@@ -3,25 +3,16 @@ import List from './List';
 import '../App.css';
 const Input = () => 
 {
-    const [state, setState] = React.useState({
-        tasks:[{task: "hola",id: 0, completed: false}  ],
-        taskCount: 0
-      });
-
+    const [tasks, setTask] = React.useState([]);
       function deleteTasks(taskIndex, tasks){
         tasks.splice(taskIndex,1);
-        setState({
-          ...state,
+        setTask({
+          ...tasks,
           tasks: tasks
         });
       }
     
       function updateTask(event){
-        console.log(state.tasks);
-        setState({ 
-          ...state,
-          tasks: [{task: event.target.value}]
-      });
       } 
 
       function inputKeyEvent(event){
@@ -37,49 +28,29 @@ const Input = () =>
         } else {
           status[index] = false;
         }
-        setState({
-          ...state,
-          status: status
-        });
+
       }
 
       function deleteDone(){
-        console.log(state.taskCount);
-        console.log(state.status);
-        console.log(state.tasks);
-        let tasks = state.tasks;
-        let status = state.status;
+        
+        let status = tasks.status;
         let deletedItems = 0;
-        for(let i = state.taskCount - 1;i >= 0;i--){
+        for(let i = tasks.taskCount - 1;i >= 0;i--){
             console.log(i);
-            console.log(state.status[i]);
-            if(state.status[i] === true){
+            console.log(tasks.status[i]);
+            if(tasks.status[i] === true){
               tasks.splice(i,1);
               status.splice(i,1);
               deletedItems++;
           }
         }
-        console.log(tasks);
-        console.log(status);
-        setState({
-          ...state,
-          tasks: tasks,
-          status: status,
-          taskCount: state.taskCount - deletedItems
-        });
+
       
     }
       
 
       function addTask(){
-        if(state.tasks.task !== ""){
-        setState({
-          ...state,
-          tasks: [{...state.tasks},{task: state.tasks.task, id: state.taskCount, completed: false }],
-          taskCount: state.taskCount + 1,
-        });
-      }    
-      
+        if(tasks.tasks.task !== ""){}
 
 
       }
@@ -87,11 +58,11 @@ const Input = () =>
     return(
       <div className="input-div">
         <div>
-          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={state.tasks.task} />
+          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={current} />
           <button className="addButton" onClick={addTask} >+</button>
         </div>
         <ul>
-          <List tasks={state.tasks} deleteTask={deleteTasks} isChecked={isChecked} completed={state.tasks.completed}></List>
+          <List tasks={tasks} deleteTask={deleteTasks} isChecked={isChecked}></List>
         </ul>
         
         <button onClick={deleteDone}>Delete checked X</button>
