@@ -27,6 +27,13 @@ const Input = () =>
       }
 
       function deleteDone(){
+        let todoTasks=[];
+        tasks.map((task) => {
+          if(task.completed === false){
+            todoTasks.push(task);
+          }
+        });
+        setTasks(todoTasks);
     }
       
       function addTask(){
