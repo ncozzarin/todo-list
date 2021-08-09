@@ -3,17 +3,19 @@ import List from './List';
 import '../App.css';
 const Input = () => 
 {
-    const [tasks, setTask] = React.useState([]);
+  /* I should add a new state variable with the user input  */
+    const [newTask, setNewTask] = React.useState("");
+    const [tasks, setTasks] = React.useState([]);
       function deleteTasks(taskIndex, tasks){
         tasks.splice(taskIndex,1);
       }
     
-      function updateTask(event){
+    function updateTask(event){
+      /* Instead of using a normal variable i will use the input variable here to modify the input */
+      setNewTask(event.target.value);
+    }
 
-        setTask([...tasks,{
-          task: event.target.value,
-        }]);
-      } 
+    
 
       function inputKeyEvent(event){
         if(event.key === "Enter"){
@@ -28,15 +30,15 @@ const Input = () =>
     }
       
       function addTask(){
-        let newTasks = tasks
-        if(tasks[tasks.length] !== ""){
-          setTask((tasks) => [...tasks, 
+        if(newTask !== ""){
+          setTasks((tasks) => [...tasks, 
                 {
-                  task:tasks,
+                  task: newTask,
                   id: tasks.length,
-                  complete:false
+                  complete: false
                 }, 
               ]);
+          setNewTask("");
             }
 
 
@@ -45,7 +47,7 @@ const Input = () =>
     return(
       <div className="input-div">
         <div>
-          <input className="input" onChange={updateTask} onKeyPress={inputKeyEvent} value={tasks.task} />
+          <input className="input" onKeyPress={inputKeyEvent} onChange={updateTask} value={newTask} />
           <button className="addButton" onClick={addTask} >+</button>
         </div>
         <ul>
