@@ -23,7 +23,17 @@ const Input = () =>
         }
       }
 
-      function isChecked(index, status){
+      function isChecked(id){
+        console.log(tasks);
+        console.log(id);
+        let tasksCopy = tasks;
+        let status = tasksCopy.find(x => x.id === id).complete;
+        if(status === false){
+          tasksCopy[id].complete = true;
+        } else {
+          tasksCopy[id].complete = false;
+        }
+        setTasks(tasksCopy);
       }
 
       function deleteDone(){
