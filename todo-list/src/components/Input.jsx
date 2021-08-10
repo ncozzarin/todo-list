@@ -39,7 +39,7 @@ const Input = () =>
       function deleteDone(){
         let todoTasks=[];
         tasks.map((task) => {
-          if(task.completed === false){
+          if(task.complete === false){
             todoTasks.push(task);
           }
         });
