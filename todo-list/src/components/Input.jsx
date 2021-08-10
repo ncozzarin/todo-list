@@ -7,8 +7,16 @@ const Input = () =>
   /* I should add a new state variable with the user input  */
     const [newTask, setNewTask] = React.useState("");
     const [tasks, setTasks] = React.useState([]);
-      function deleteTasks(taskIndex, tasks){
-        tasks.splice(taskIndex,1);
+
+      function deleteTasks(id){
+        let tasksCopy = tasks;
+        let taskIndex = tasksCopy.findIndex(x => x.id === id);
+        console.log(tasksCopy);
+        console.log(taskIndex);
+        console.log(tasksCopy[taskIndex])
+        tasksCopy.splice(taskIndex,1);
+        console.log(tasksCopy[taskIndex])
+        setTasks(tasksCopy);
       }
     
     function updateTask(event){

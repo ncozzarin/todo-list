@@ -8,7 +8,7 @@ const List = ({tasks,deleteTask,isChecked}) => {
             <div key={task.id} className='list-div'>
                 <input onChange={()=> isChecked(task.id)} defaultChecked = {task.complete} type="checkbox"></input>
                 <li >{task.task}</li>
-                <button onClick={() => deleteTask(task.id,tasks)}>X</button>
+                <button onClick={() => deleteTask(task.id)}>X</button>
             </div>
         )
     );
