@@ -1,5 +1,6 @@
 import React from 'react';
 import List from './List';
+import shortid from 'shortid';
 import '../App.css';
 const Input = () => 
 {
@@ -24,14 +25,12 @@ const Input = () =>
       }
 
       function isChecked(id){
-        console.log(tasks);
-        console.log(id);
         let tasksCopy = tasks;
-        let status = tasksCopy.find(x => x.id === id).complete;
-        if(status === false){
-          tasksCopy[id].complete = true;
+        let index = tasksCopy.findIndex(x => x.id === id);
+        if(tasksCopy[index].complete === false){
+          tasksCopy[index].complete = true;
         } else {
-          tasksCopy[id].complete = false;
+          tasksCopy[index].complete = false;
         }
         setTasks(tasksCopy);
       }
@@ -51,7 +50,7 @@ const Input = () =>
           setTasks((tasks) => [...tasks, 
                 {
                   task: newTask,
-                  id: tasks.length,
+                  id: shortid.generate(),
                   complete: false
                 }, 
               ]);
