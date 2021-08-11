@@ -5,68 +5,62 @@ import '../App.css';
 const Input = () => 
 {
   /* I should add a new state variable with the user input  */
-    const [newTask, setNewTask] = React.useState("");
-    const [tasks, setTasks] = React.useState([]);
+  const [tasks, setTasks] = React.useState([]);
+  const [newTask, setNewTask] = React.useState("");
 
-      function deleteTasks(id){
-        let tasksCopy = tasks;
-        let taskIndex = tasksCopy.findIndex(x => x.id === id);
-        console.log(tasksCopy);
-        console.log(taskIndex);
-        console.log(tasksCopy[taskIndex])
-        tasksCopy.splice(taskIndex,1);
-        console.log(tasksCopy[taskIndex])
-        setTasks(tasksCopy);
-      }
+
+    function deleteTasks(id){
+      let tasksCopy = tasks;
+      let taskIndex = tasksCopy.findIndex(x => x.id === id);
+      tasksCopy.splice(taskIndex,1);
+      setTasks(tasksCopy);
+    }
     
     function updateTask(event){
-      /* Instead of using a normal variable i will use the input variable here to modify the input */
       setNewTask(event.target.value);
     }
 
-    
-
-      function inputKeyEvent(event){
-        if(event.key === "Enter"){
-          addTask();
-        }
+    function inputKeyEvent(event){
+      if(event.key === "Enter"){
+        addTask();
       }
+    }
 
-      function isChecked(id){
-        let tasksCopy = tasks;
-        let index = tasksCopy.findIndex(x => x.id === id);
-        if(tasksCopy[index].complete === false){
-          tasksCopy[index].complete = true;
-        } else {
-          tasksCopy[index].complete = false;
-        }
-        setTasks(tasksCopy);
+    function isChecked(id){
+      let tasksCopy = tasks;
+      let index = tasksCopy.findIndex(x => x.id === id);
+      if(tasksCopy[index].complete === false){
+        tasksCopy[index].complete = true;
+      } else {
+        tasksCopy[index].complete = false;
       }
+      setTasks(tasksCopy);
+      console.log(tasks);
+    }
 
-      function deleteDone(){
-        let todoTasks=[];
-        tasks.map((task) => {
-          if(task.complete === false){
-            todoTasks.push(task);
-          }
-        });
-        setTasks(todoTasks);
+    function deleteDone(){
+      let todoTasks=[];
+      tasks.map((task) => {
+        if(task.complete === false){
+          todoTasks.push(task);
+        }
+      });
+      setTasks(todoTasks);
     }
       
-      function addTask(){
-        if(newTask !== ""){
-          setTasks((tasks) => [...tasks, 
-                {
-                  task: newTask,
-                  id: shortid.generate(),
-                  complete: false
-                }, 
-              ]);
-          setNewTask("");
-            }
+    function addTask(){
+      if(newTask !== ""){
+        setTasks((tasks) => [...tasks, 
+              {
+                task: newTask,
+                id: shortid.generate(),
+                complete: false
+              }, 
+            ]);
+        setNewTask("");
+        }
 
-
-      }
+    }
     
     return(
       <div className="input-div">

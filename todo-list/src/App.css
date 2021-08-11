@@ -2,7 +2,6 @@
   --main-color: #4287f5;
 }
 
-
 .todo-list{
   display: block;
   align-items: center;
@@ -16,10 +15,6 @@
   width: 50%;
 }
 
-ul{
-  list-style-type:none;
-
-}
 
 .addButton{
   background-color: var(--main-color);
@@ -36,20 +31,29 @@ ul{
   height: 2.6rem;
 }
 
-/* .input-div{
-  display: block;
-} */
 .addButton:hover{
   cursor: pointer;
 }
-
 
 .list-div{
   display: flex;
   background-color: #cff0fc;
   width: 90%;
 }
-
-.list-div .button{
-  justify-content: flex-end;
+ul .list-div{
+  list-style-type:none;
 }
+
+button .list-div {
+  align-items: flex-end;
+}
+
+.strike{
+  text-decoration: line-through;
+}
+
+.deleteButton{
+  justify-content: flex-end;
+
+}
+
