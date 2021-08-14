@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import './List.css';
 
 
 const List = ({tasks,deleteTask,isChecked}) => {

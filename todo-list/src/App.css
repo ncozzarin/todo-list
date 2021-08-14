@@ -1,59 +1,6 @@
-:root{
-  --main-color: #4287f5;
-}
-
 .todo-list{
   display: block;
   align-items: center;
   margin: 0 auto;
   text-align: center;
 }
-
-.todo-list{
-  background-color: white;
-  min-height: 30%;
-  width: 50%;
-}
-
-
-.addButton{
-  background-color: var(--main-color);
-  border: none;
-  color: white;
-  padding: 1rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  margin: 1rem;
-}
-
-.input{
-  width: 80%;
-  height: 2.6rem;
-}
-
-.addButton:hover{
-  cursor: pointer;
-}
-
-.list-div{
-  display: flex;
-  background-color: #cff0fc;
-  width: 90%;
-}
-ul .list-div{
-  list-style-type:none;
-}
-
-button .list-div {
-  align-items: flex-end;
-}
-
-.strike{
-  text-decoration: line-through;
-}
-
-.deleteButton{
-  justify-content: flex-end;
-
-}
-

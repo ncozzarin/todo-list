@@ -1,7 +1,7 @@
 import React from 'react';
-import List from './List';
+import List from '../List/List';
 import shortid from 'shortid';
-import '../App.css';
+import './Input.css';
 const Input = () => 
 {
   /* I should add a new state variable with the user input  */
