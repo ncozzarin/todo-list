@@ -1,0 +1,29 @@
+ul{
+    background-color: #cff0fc;
+    width: 90%;
+    list-style-type:none;
+    display: block;
+  }
+
+  li{
+    display: inline-flex;
+  }
+
+  input{
+      align-self: flex-start;
+  }
+
+  button{
+      align-self: flex-end;
+  }
+
+  
+.strike{
+    text-decoration: line-through;
+}
+  
+  .deleteButton{
+    justify-content: flex-end;
+
+  }
+  

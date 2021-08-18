@@ -1,0 +1,29 @@
+:root{
+    --main-color: #4287f5;
+  }
+  
+
+  .whole{
+      display: block;
+  }
+  
+  .addButton{
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    padding: 1rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    margin: 1rem;
+  }
+  
+  .input{
+    width: 80%;
+    height: 2.6rem;
+  }
+  
+  .addButton:hover{
+    cursor: pointer;
+  }
+  
+  
