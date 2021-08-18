@@ -34,7 +34,6 @@ const Input = () =>
         tasksCopy[index].complete = false;
       }
       setTasks(tasksCopy);
-      console.log(tasks);
     }
 
     function deleteDone(){
@@ -64,7 +63,7 @@ const Input = () =>
     return(
       <div className="input-div">
         <div>
-          <input className="input" onKeyPress={inputKeyEvent} maxlength="25" onChange={updateTask} value={newTask} />
+          <input className="input" onKeyPress={inputKeyEvent} maxLength="25" onChange={updateTask} value={newTask} />
           <button className="addButton" onClick={addTask} >+</button>
         </div>
         <ul>
