@@ -4,7 +4,6 @@ import shortid from 'shortid';
 import './Input.css';
 const Input = () => 
 {
-  /* I should add a new state variable with the user input  */
   const [tasks, setTasks] = React.useState([]);
   const [newTask, setNewTask] = React.useState("");
 

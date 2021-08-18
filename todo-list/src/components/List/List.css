@@ -1,0 +1,13 @@
+li{
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0.3rem;
+    width: 85%;
+}
+
+button{
+    align-self: flex-end;
+}
+
+
+
