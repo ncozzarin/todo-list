@@ -64,14 +64,14 @@ const Input = () =>
     return(
       <div className="input-div">
         <div>
-          <input className="input" onKeyPress={inputKeyEvent} onChange={updateTask} value={newTask} />
+          <input className="input" onKeyPress={inputKeyEvent} maxlength="25" onChange={updateTask} value={newTask} />
           <button className="addButton" onClick={addTask} >+</button>
         </div>
         <ul>
           <List tasks={tasks} deleteTask={deleteTasks} isChecked={isChecked}></List>
         </ul>
         
-        <button onClick={deleteDone}>Delete checked X</button>
+        <button className="delete-done" onClick={deleteDone}>Delete done</button>
       </div>
     );
 }

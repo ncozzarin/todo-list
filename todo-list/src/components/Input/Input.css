@@ -1,5 +1,14 @@
 ul{
     text-decoration: none;
     list-style:none;
-    display: flexbox;
+    display: block;
+}
+
+.delete-done{
+    padding: 0.3rem;
+    margin: 0.2rem;
+}
+
+.input{
+    width: 40%;
 }
